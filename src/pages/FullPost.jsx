@@ -25,6 +25,8 @@ export const FullPost = () => {
 			})
 	}, [])
 
+	console.log('Я здесь!')
+
 	if (isLoading) {
 		return <Post isLoading={isLoading} isFullPost />
 	}
