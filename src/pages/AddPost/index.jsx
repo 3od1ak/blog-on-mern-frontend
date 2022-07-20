@@ -122,7 +122,12 @@ export const AddPost = () => {
 			>
 				Загрузить превью
 			</Button>
-			<input ref={inputFileRef} type='file' onChange={handleChangeFile} />
+			<input
+				ref={inputFileRef}
+				type='file'
+				onChange={handleChangeFile}
+				hidden
+			/>
 			{imageUrl && (
 				<>
 					<Button
