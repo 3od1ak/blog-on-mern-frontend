@@ -33,7 +33,12 @@ export const AddPost = () => {
 			const file = event.target.files[0]
 			formData.append('image', file)
 			const { data } = await axios.post('/upload', formData)
-			setImageUrl(data.url)
+			try {
+				setImageUrl(data.url)
+			} catch (error) {
+				console.error(error)
+			}
+			// console.log(data.url)
 		} catch (error) {
 			console.warn(error)
 			alert('Ошибка при загрузке файла!')
@@ -117,12 +122,7 @@ export const AddPost = () => {
 			>
 				Загрузить превью
 			</Button>
-			<input
-				ref={inputFileRef}
-				type='file'
-				onChange={handleChangeFile}
-				hidden
-			/>
+			<input ref={inputFileRef} type='file' onChange={handleChangeFile} />
 			{imageUrl && (
 				<>
 					<Button
